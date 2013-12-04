@@ -1,0 +1,23 @@
+{% extends 'ButenkoHomeBundle:Default:layout.html.twig' %}
+
+{% block content %}
+    </br>
+    </br>
+    </br>
+    </br>
+    </br></br>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{ post.getId() }}
+                <a href="{{ path('show_post', {'id': post.getId()}) }}">Show</a>
+                <a href="{{ path('delete_post', {'id': post.getId()}) }}">Delete</a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <p>Name: {{ post.getName() }}</p>
+            <p>Email: {{ post.getEmail() }}</p>
+            <p>{{ post.getBody() }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -42,6 +42,15 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+    assets:
+        css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/dist/css/bootstrap.css
+                - %kernel.root_dir%/../web/mycss.css
+            filters:
+                - cssrewrite
+            output: mystyle.css
+
 # Doctrine Configuration
 doctrine:
     dbal:

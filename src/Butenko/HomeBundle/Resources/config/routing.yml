@@ -1,0 +1,11 @@
+all_posts:
+    pattern:  /guestbook
+    defaults: { _controller: ButenkoHomeBundle:Default:index }
+
+delete_post:
+    pattern:  /delete/{id}
+    defaults: { _controller: ButenkoHomeBundle:Default:delete }
+
+show_post:
+    pattern: /show/{id}
+    defaults: { _controller: ButenkoHomeBundle:Default:show }

@@ -1,0 +1,7 @@
+parameters:
+#    butenko_home.example.class: Butenko\HomeBundle\Example
+
+services:
+#    butenko_home.example:
+#        class: %butenko_home.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

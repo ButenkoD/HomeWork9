@@ -1,0 +1,4 @@
+butenko_home:
+    resource: "@ButenkoHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+

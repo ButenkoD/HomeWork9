@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('mystyle.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="container theme-showcase">
+        {% block header %}
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="navbar-brand">
+                            <a href="{{ path('all_posts') }}">Header</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-header">
+                    {% block form %} {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+
+        <div class="container mycontent">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% block footer %}
+            <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="navbar-brand">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
