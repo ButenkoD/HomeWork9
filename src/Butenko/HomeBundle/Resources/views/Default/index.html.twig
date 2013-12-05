@@ -8,7 +8,7 @@
         </div>
     {% endblock %}
 
-    {% for post in posts|reverse %}
+    {% for post in posts %}
 
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -20,10 +20,22 @@
             </div>
             <div class="panel-body">
                 <p>{{ post.getName() }}</p>
-                <p>{{ post.getBody() }}</p>
+                <p>{{ post.getBody | slice(0,100) }}</p>
             </div>
         </div>
 
     {% endfor %}
 
+{% endblock %}
+
+{% block footer %}
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    {{ knp_pagination_render(posts) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

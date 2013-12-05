@@ -31,6 +31,13 @@ class DefaultController extends Controller
         $posts = $em->getRepository('ButenkoHomeBundle:Post')
             ->findAll();
 
+        $paginator  = $this->get('knp_paginator');
+        $posts = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            $this->container->getParameter('posts_per_page')
+        );
+
         return $this->render('ButenkoHomeBundle:Default:index.html.twig', array(
             'posts' => $posts,
             'form' => $form->createView()
