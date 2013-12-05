@@ -46,7 +46,7 @@ assetic:
         css:
             inputs:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/dist/css/bootstrap.css
-                - %kernel.root_dir%/../web/mycss.css
+                - %kernel.root_dir%/../src/Butenko/HomeBundle/Resources/public/css/mycss.css
             filters:
                 - cssrewrite
             output: mystyle.css
