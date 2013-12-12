@@ -31,9 +31,11 @@ class DefaultController extends Controller
         $posts = $em->getRepository('ButenkoHomeBundle:Post')
             ->findAll();
 
+        $query = $em->createQuery('SELECT p FROM ButenkoHomeBundle:Post p ORDER BY p.id DESC ');
+
         $paginator  = $this->get('knp_paginator');
         $posts = $paginator->paginate(
-            $posts,
+            $query,
             $this->get('request')->query->get('page', 1)/*page number*/,
             $this->container->getParameter('posts_per_page')
         );
