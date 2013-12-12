@@ -6,6 +6,13 @@
 
     <parameters>
         <parameter key="posts_per_page">10</parameter>
+        <parameter key="my_listener.class">Butenko\HomeBundle\EventListener\MyListener</parameter>
     </parameters>
+
+    <services>
+        <service id="my_listener" class="%my_listener.class%">
+            <tag name="kernel.event_listener" event="post.added" method="onPostAdded" priority="0"/>
+        </service>
+    </services>
 
 </container>

@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Butenko\HomeBundle\Entity\Post;
 use Butenko\HomeBundle\Form\Type\PostType;
 use Symfony\Component\HttpFoundation\Request;
+use Butenko\HomeBundle\EventListener\PostAddedEvent;
+use Butenko\HomeBundle\EventListener\EventNames;
 
 class DefaultController extends Controller
 {
@@ -24,7 +26,12 @@ class DefaultController extends Controller
                 $em->persist($post);
                 $em->flush();
 
-            return $this->redirect($this->generateUrl('all_posts'));
+                $dispatcher = $this->get('event_dispatcher');
+
+                $event = new PostAddedEvent($post);
+                $dispatcher->dispatch(EventNames::POST_ADDED, $event);
+
+                return $this->redirect($this->generateUrl('all_posts'));
             }
         }
 
